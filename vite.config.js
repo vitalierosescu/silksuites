@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import eslintPlugin from 'vite-plugin-eslint'
 
+// vite.config.js
 export default defineConfig({
   plugins: [eslintPlugin({ cache: false })],
   server: {
@@ -15,14 +16,11 @@ export default defineConfig({
     minify: true,
     manifest: true,
     rollupOptions: {
-      input: {
-        invest: './src/invest.js',
-        home: './src/home.js',
-      },
+      input: './src/main.js',
       output: {
-        format: 'es', // Use 'es' format for code-splitting
-        entryFileNames: '[name].bundle.js',
-        esModule: true,
+        format: 'umd',
+        entryFileNames: 'main.js',
+        esModule: false,
         compact: true,
         globals: {
           jquery: '$',
