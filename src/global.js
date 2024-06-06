@@ -16,7 +16,7 @@ export const addNavbarActiveClass = () => {
 
   // Function to toggle 'is-active' class based on scroll position
   function toggleNavbarClass() {
-    if (window.scrollY > 140) {
+    if (window.scrollY > 800) {
       navbar.classList.add('is-active')
     } else {
       navbar.classList.remove('is-active')
@@ -32,7 +32,7 @@ let initialDirection = false
 // Scroll Direction
 ScrollTrigger.create({
   trigger: '.page-wrapper',
-  start: 'top -600px',
+  start: 'top -800px',
   end: 'bottom bottom',
   onUpdate: (self) => {
     if (self.direction !== self.prevDirection) {
