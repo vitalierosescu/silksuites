@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "gsap": "^3.12.5",
+    "moment": "^2.30.1",
     "split-type": "^0.3.4"
   }
 }

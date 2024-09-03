@@ -3,6 +3,7 @@ import { Flip } from 'gsap/Flip'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import $ from 'jquery'
 import SplitType from 'split-type'
+import './styles/style.css'
 
 gsap.registerPlugin(ScrollTrigger, Flip)
 // Function to handle "home" page-specific scripts
@@ -14,7 +15,7 @@ export default function handleHomePage() {
   let visualDestination = $('.navbar_logo-destination')
 
   // Check for first visit
-  if (!localStorage.getItem('firstVisit')) {
+  if (!localStorage.getItem('firstVisit') && window.width < 479) {
     localStorage.setItem('firstVisit', 'true')
     console.log('this is the first visit')
     window.scrollTo(0, 0)

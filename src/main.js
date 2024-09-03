@@ -22,6 +22,7 @@
 
 // // Execute main function
 // main()
+import './styles/style.css'
 
 import gsap from 'gsap'
 import { Flip } from 'gsap/Flip'
@@ -29,6 +30,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import $ from 'jquery'
 import SplitType from 'split-type'
 
+import openPopup from './features/openPopup.js'
 import { addNavbarActiveClass } from './global.js'
 
 addNavbarActiveClass()
@@ -134,6 +136,8 @@ function handleInvestPage() {
 
 // Function to handle "home" page-specific scripts
 function handleHomePage() {
+  openPopup()
+
   let mm = gsap.matchMedia()
 
   // store elements
