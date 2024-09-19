@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const navbarBg = document.querySelector('.navbar_background-light')
-let initialDirection = false
+// let initialDirection = false
 
 export const addNavbarActiveClass = () => {
   const navbar = document.querySelector('.navbar_container')
@@ -34,31 +34,27 @@ export const addNavbarActiveClass = () => {
 
   // Attach the scroll event listener to the window
   window.addEventListener('scroll', toggleNavbarClass)
-  // hamburger.addEventListener('click', () => {
-  //   toggleNavbarClass()
-  //   console.log('clicked')
-  // })
 
   // Scroll Direction
-  ScrollTrigger.create({
-    trigger: '.page-wrapper',
-    start: 'top -800px',
-    end: 'bottom bottom',
-    onUpdate: (self) => {
-      if (self.direction !== self.prevDirection) {
-        if (initialDirection === false) {
-          initialDirection = true
-          self.direction = -1
-        }
+  // ScrollTrigger.create({
+  //   trigger: '.page-wrapper',
+  //   start: 'top -800px',
+  //   end: 'bottom bottom',
+  //   onUpdate: (self) => {
+  //     if (self.direction !== self.prevDirection) {
+  //       if (initialDirection === false) {
+  //         initialDirection = true
+  //         self.direction = -1
+  //       }
 
-        gsap.to('.navbar_component', {
-          y: `${self.direction === -1 ? '0%' : '-100%'}`,
-          duration: 0.5,
-          ease: 'Quart.easeOut',
-        })
+  //       gsap.to('.navbar_component', {
+  //         y: `${self.direction === -1 ? '0%' : '-100%'}`,
+  //         duration: 0.5,
+  //         ease: 'Quart.easeOut',
+  //       })
 
-        self.prevDirection = self.direction
-      }
-    },
-  })
+  //       self.prevDirection = self.direction
+  //     }
+  //   },
+  // })
 }
