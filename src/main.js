@@ -30,7 +30,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import $ from 'jquery'
 import SplitType from 'split-type'
 
-import openPopup from './features/openPopup.js'
+// import openPopup from './features/openPopup.js'
 import { addNavbarActiveClass } from './global.js'
 
 addNavbarActiveClass()
@@ -45,16 +45,10 @@ function handleInvestPage() {
       let thumbnails = $('.thumbnails').eq(thumbnailsIndex)
       let childImages = $(this).closest(thumbnails).find('.thumbnails_img')
       const state = Flip.getState(childImages)
-      console.log(childImages)
-      console.log(state)
 
-      // Find the main image within the container
       let $mainImg = $('.thumbnails_main').eq(thumbnailsIndex).find('img')
-
-      // Move clicked thumbnail image to the main image container
       $(this).find('img').appendTo($('.thumbnails_main').eq(thumbnailsIndex))
 
-      // Move previous main image back to the thumbnail container
       $mainImg.appendTo($(this))
 
       // Animate the transition using Flip
@@ -66,7 +60,6 @@ function handleInvestPage() {
     }
   }
 
-  // Click event for thumbnails in the first container
   $('.thumbnails')
     .eq(0)
     .find('.thumbnails_item')
@@ -136,121 +129,121 @@ function handleInvestPage() {
 
 // Function to handle "home" page-specific scripts
 function handleHomePage() {
-  openPopup()
+  // openPopup()
 
-  let mm = gsap.matchMedia()
+  // let mm = gsap.matchMedia()
 
-  // store elements
-  let visual = $('.loader_logo')
-  let visualDestination = $('.navbar_logo-destination')
+  // // store elements
+  // let visual = $('.loader_logo')
+  // let visualDestination = $('.navbar_logo-destination')
 
-  // Check for first visit
-  if (!localStorage.getItem('firstVisit')) {
-    localStorage.setItem('firstVisit', 'true')
-    console.log('this is the first visit')
-    window.scrollTo(0, 0)
-    window.SScroll.call.stop()
+  // if (!localStorage.getItem('firstVisit') && window.innerWidth > 479) {
+  //   localStorage.setItem('firstVisit', 'true')
+  //   console.log('this is the first visit')
+  //   console.log(window.innerWidth)
+  //   window.scrollTo(0, 0)
+  //   window.SScroll.call.stop()
 
-    // Hero ENTRANCE Animation
-    mm.add('(min-width: 2px)', () => {
-      gsap.defaults({ ease: 'Quart.easeInOut', duration: 1 })
+  //   // Hero ENTRANCE Animation
+  //   mm.add('(min-width: 479px)', () => {
+  //     gsap.defaults({ ease: 'Quart.easeInOut', duration: 1 })
 
-      const logoWords = document.querySelectorAll('.is-logo-word svg')
+  //     const logoWords = document.querySelectorAll('.is-logo-word svg')
 
-      // move button animation
-      function moveVisualInto(element) {
-        let state = Flip.getState(visual)
-        visual.appendTo(element)
-        Flip.from(state, {
-          duration: 1.5,
-          delay: 0.4,
-          onStart: () => {
-            gsap.to(logoWords, {
-              y: '0%',
-              stagger: 0.05,
-              delay: 1.2,
-              ease: 'Quart.easeOut',
-              duration: 0.9,
-            })
-            setTimeout(function () {
-              window.SScroll.call.start()
-            }, 650)
-          },
-        })
-      }
+  //     // move button animation
+  //     function moveVisualInto(element) {
+  //       let state = Flip.getState(visual)
+  //       visual.appendTo(element)
+  //       Flip.from(state, {
+  //         duration: 1.5,
+  //         delay: 0.4,
+  //         onStart: () => {
+  //           gsap.to(logoWords, {
+  //             y: '0%',
+  //             stagger: 0.05,
+  //             delay: 1.2,
+  //             ease: 'Quart.easeOut',
+  //             duration: 0.9,
+  //           })
+  //           setTimeout(function () {
+  //             window.SScroll.call.start()
+  //           }, 650)
+  //         },
+  //       })
+  //     }
 
-      const heroEntrance = () => {
-        let heroTl = gsap.timeline()
+  //     const heroEntrance = () => {
+  //       let heroTl = gsap.timeline()
 
-        heroTl
-          .fromTo(
-            '.home-hero_video-parent',
-            {
-              borderRadius: '350px 350px 0 0',
-            },
-            {
-              width: '100%',
-              height: '240vh',
-              borderRadius: '0 0 0 0',
-              duration: 2,
-              onStart: () => {
-                moveVisualInto(visualDestination)
-              },
-            }
-          )
-          .fromTo(
-            '.home-hero_content',
-            {
-              y: '1rem',
-            },
-            {
-              y: '0rem',
-              opacity: 1,
-              duration: 1.45,
-              ease: 'Quart.easeOut',
-            },
-            '<1.5'
-          )
-          .fromTo(
-            '.navbar_component .is-nav-link',
-            {
-              opacity: 0,
-              y: '0.5rem',
-            },
-            {
-              opacity: 1,
-              stagger: 0.15,
-              y: '0rem',
-            },
-            '<'
-          )
-      }
+  //       heroTl
+  //         .fromTo(
+  //           '.home-hero_video-parent',
+  //           {
+  //             borderRadius: '350px 350px 0 0',
+  //           },
+  //           {
+  //             width: '100%',
+  //             height: '240vh',
+  //             borderRadius: '0 0 0 0',
+  //             duration: 2,
+  //             onStart: () => {
+  //               moveVisualInto(visualDestination)
+  //             },
+  //           }
+  //         )
+  //         .fromTo(
+  //           '.home-hero_content',
+  //           {
+  //             y: '1rem',
+  //           },
+  //           {
+  //             y: '0rem',
+  //             opacity: 1,
+  //             duration: 1.45,
+  //             ease: 'Quart.easeOut',
+  //           },
+  //           '<1.5'
+  //         )
+  //         .fromTo(
+  //           '.navbar_component .is-nav-link',
+  //           {
+  //             opacity: 0,
+  //             y: '0.5rem',
+  //           },
+  //           {
+  //             opacity: 1,
+  //             stagger: 0.15,
+  //             y: '0rem',
+  //           },
+  //           '<'
+  //         )
+  //     }
 
-      heroEntrance()
-    })
-  } else {
-    localStorage.setItem('firstVisit', 'false')
-    document
-      .querySelector('.home-hero_content')
-      .classList.remove('is-first-visit')
-    document
-      .querySelector('.home-hero_video-parent')
-      .classList.remove('is-first-visit')
-    document
-      .querySelectorAll('.navbar_component .is-nav-link')
-      .forEach((link) => (link.style = 'opacity: 1 !important;'))
+  //     heroEntrance()
+  //   })
+  // } else {
+  //   localStorage.setItem('firstVisit', 'false')
+  //   document
+  //     .querySelector('.home-hero_content')
+  //     .classList.remove('is-first-visit')
+  //   document
+  //     .querySelector('.home-hero_video-parent')
+  //     .classList.remove('is-first-visit')
+  //   document
+  //     .querySelectorAll('.navbar_component .is-nav-link')
+  //     .forEach((link) => (link.style = 'opacity: 1 !important;'))
 
-    let state = Flip.getState(visual)
-    visual.appendTo(visualDestination)
-    Flip.from(state, {
-      duration: 0,
-    })
+  //   let state = Flip.getState(visual)
+  //   visual.appendTo(visualDestination)
+  //   Flip.from(state, {
+  //     duration: 0,
+  //   })
 
-    $('.is-logo-word').each(function () {
-      $(this).removeClass('is-first-visit')
-    })
-    console.log('this is not the first visit')
-  }
+  //   $('.is-logo-word').each(function () {
+  //     $(this).removeClass('is-first-visit')
+  //   })
+  //   console.log('this is not the first visit')
+  // }
 
   // DOUBLE SLIDER
   $('.slider_wrap').each(function () {

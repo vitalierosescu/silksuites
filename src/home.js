@@ -15,14 +15,15 @@ export default function handleHomePage() {
   let visualDestination = $('.navbar_logo-destination')
 
   // Check for first visit
-  if (!localStorage.getItem('firstVisit') && window.width < 479) {
+  if (!localStorage.getItem('firstVisit') && window.innerWidth > 479) {
     localStorage.setItem('firstVisit', 'true')
     console.log('this is the first visit')
+    console.log(window.innerWidth)
     window.scrollTo(0, 0)
     window.SScroll.call.stop()
 
     // Hero ENTRANCE Animation
-    mm.add('(min-width: 2px)', () => {
+    mm.add('(min-width: 479px)', () => {
       gsap.defaults({ ease: 'Quart.easeInOut', duration: 1 })
 
       const logoWords = document.querySelectorAll('.is-logo-word svg')
